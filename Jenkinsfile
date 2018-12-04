@@ -13,6 +13,6 @@ node('linux') {
         sh 'aws s3 cp dist/rectangle-${BUILD_NUMBER}.jar s3://itidal-assignment-10/' 
     }
     stage('Report') {
-        sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins'
+        sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins-stack'
     }
 }
