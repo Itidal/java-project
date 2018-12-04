@@ -9,7 +9,7 @@ node('linux') {
     stage('Build') { 
         sh 'ant -f build.xml -v'
     }
-    
-stage('Results') {
-    junit 'reports/*.xml' }
+    stage('Deploy') {
+        sh 'aws s3 cp dist/rectangle-${BUILD_NUMBER}.jar s3://itidal-assignment-10/' 
+    }
 }
